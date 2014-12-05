@@ -1,6 +1,6 @@
-from ubuntu:12.04
+from ubuntu:14.04
 
-MAINTAINER Thatcher Peskens <thatcher@koffiedik.net>
+MAINTAINER YK Goon <ykgoon@gmail.com>
 
 RUN apt-get update
 
