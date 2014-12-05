@@ -15,7 +15,7 @@ RUN apt-get install -y vim curl rsync mysql-client
 # ADD nginx/sites-available/magento /etc/nginx/sites-available/default
 
 # install and configure php-fpm
-RUN apt-get install -y php5-fpm php5-mysql php5-curl php5-mcrypt php5-gd 
+RUN apt-get install -y php5-fpm php5-mysql php5-curl php5-mcrypt php5-gd mcrypt 
 
 # ADD php5/php.ini /etc/php5/fpm/php.ini
 # ADD php5/php-fpm.conf /etc/php5/fpm/php-fpm.conf
