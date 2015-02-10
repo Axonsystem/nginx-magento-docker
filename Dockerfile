@@ -44,11 +44,6 @@ RUN ln -sf /configs/php5/php.ini /etc/php5/fpm/php.ini
 RUN ln -sf /configs/php5/php-fpm.conf /etc/php5/fpm/php-fpm.conf
 RUN ln -sf /configs/php5/pool.d/www.conf /etc/php5/fpm/pool.d/www.conf
 
-# install a site
-ADD www /var/www
-
 EXPOSE 80 3306
 
-CMD service nginx start
-CMD service php5-fpm start
-CMD service mysql start
+CMD bash -C '/configs/start.sh';'bash'

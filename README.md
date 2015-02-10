@@ -15,21 +15,26 @@ the image should work out of the box.
 
 building
 
-    docker build -t your_name/magento .
+  docker build -t nginx-magento .
 
 while developing:
-    
-    docker run -i -t \
-    -v /Volumes/sitename/www/:/var/www \
-    -v /root/.ssh/authorized_keys:/root/.ssh/authorized_keys \
-    -v `pwd`:/configs/ \
-    -p 80:80 -p 2222:22 \
-    your_name/magento bash
+
+  soft link to your Magento code base in `magento`
+
+  docker run \
+  -v `pwd`/magento:/var/www \
+  -v `pwd`:/configs/ \
+  --name magento \
+  -ti nginx-magento
+
+  or execute `run.sh`
 
 normal run
 
-    docker run -d \
-    -v /Volumes/sitename/www/:/var/www \
-    -v /root/.ssh/authorized_keys:/root/.ssh/authorized_keys \
-    -p 80:80 -p 2222:22 \
-    your_name/magento bash
+  soft link to your Magento code base in `magento`
+
+  docker run \
+  -v `pwd`/magento:/var/www \
+  -v `pwd`:/configs/ \
+  --name magento \
+  -d nginx-magento
