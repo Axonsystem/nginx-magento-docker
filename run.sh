@@ -1,7 +1,7 @@
-docker run -i -t \
+docker run -ti \
 -v `pwd`/magento:/var/www \
--v ~/.ssh/authorized_keys:/root/.ssh/authorized_keys \
 -v `pwd`:/configs/ \
---link mysql:db \
--p 8080:80 -p 2222:22 \
-ykgoon/magento bash
+-p 8080:80 \
+-p 3306:3306 \
+--name magento
+nginx-magento bash
