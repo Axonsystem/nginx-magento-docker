@@ -14,18 +14,21 @@ the image should work out of the box.
 
 
 building
-
+  ```
   docker build -t nginx-magento .
+  ```
 
 while developing:
 
   soft link to your Magento code base in `magento`
 
+  ```
   docker run \
   -v `pwd`/magento:/var/www \
   -v `pwd`:/configs/ \
   --name magento \
   -ti nginx-magento
+  ```
 
   or execute `run.sh`
 
@@ -33,8 +36,10 @@ normal run
 
   soft link to your Magento code base in `magento`
 
+  ```
   docker run \
   -v `pwd`/magento:/var/www \
   -v `pwd`:/configs/ \
   --name magento \
   -d nginx-magento
+  ```
