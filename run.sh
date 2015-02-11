@@ -2,6 +2,6 @@ docker run \
 -v `pwd`/magento:/var/www \
 -v `pwd`:/configs/ \
 -p 80:80 \
--p 3306:3306 \
+--link db:mysql
 --name magento \
 -ti nginx-magento
