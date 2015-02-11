@@ -13,33 +13,33 @@ While recommended to check all configuration and rebuilding before using this in
 the image should work out of the box. 
 
 
-building
+## Building
   ```
   docker build -t nginx-magento .
   ```
 
-while developing:
+## Setup database
 
-  soft link to your Magento code base in `magento`
+Database is run from a separate container.
+
+1. Create a container named `mysql` from this [guide](http://www.nkode.io/2014/09/12/easymysql.html).
+
+
+## For development
+
+1. Soft link to your Magento code base in `magento`
+1. Run `run.sh`
+
+## For production
+
+1. Soft link to your Magento code base in `magento`
+1. Run this
 
   ```
   docker run \
   -v `pwd`/magento:/var/www \
   -v `pwd`:/configs/ \
   --name magento \
-  -ti nginx-magento
-  ```
-
-  or execute `run.sh`
-
-normal run
-
-  soft link to your Magento code base in `magento`
-
-  ```
-  docker run \
-  -v `pwd`/magento:/var/www \
-  -v `pwd`:/configs/ \
-  --name magento \
+  --link db:mysql \
   -d nginx-magento
   ```
